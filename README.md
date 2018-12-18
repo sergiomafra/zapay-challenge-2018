@@ -1,10 +1,10 @@
-#Zapay Challenge - spacex
+# Zapay Challenge - spacex
 
 This is a CLI for Zapy Challenge which participants had to build code to access Space X API to retrieve information about Space X launches.
 
 User should be able to choose between PAST, NEXT, LATESTS and UPCOMING launches on an interface and see the results on the screen.
 
-###CLI Installation (Ubuntu only)
+### CLI Installation (Ubuntu only)
 
 First, copy the repository to your machine with the command:
 
@@ -14,13 +14,13 @@ Then change to it's directory:
 
 `$ cd zapay-challenge`
 
-####Through Script (execute)
+#### Through Script (execute)
 `$ ./install`
 
-####Manually (copy and paste on terminal)
+#### Manually (copy and paste on terminal)
 `$ LOCAL=/usr/local/bin && USER="$(whoami)" && sudo cp space-x.py $LOCAL/spacex && sudo chmod 0500 $LOCAL/spacex && sudo chown $USER: $LOCAL/spacex`
 
-###Usage
+### Usage
 `-n` or `--next`
 Shows on screen information about the next launch
 
