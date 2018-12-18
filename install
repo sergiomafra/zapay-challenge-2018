@@ -1,0 +1,6 @@
+#!/bin/bash
+LOCAL=/usr/local/bin
+USER=`whoami`
+sudo cp space-x.py $LOCAL/spacex
+sudo chmod 0500 $LOCAL/spacex
+sudo chown $USER: $LOCAL/spacex

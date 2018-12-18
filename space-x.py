@@ -52,7 +52,7 @@ class SpaceX:
         elif mult == 0:
             self.print_data(response)
         elif mult == 1:
-            for element in response.json():
+            for element in response:
                 self.print_data(element)
 
     def run(self):
