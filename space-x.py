@@ -30,8 +30,17 @@ class SpaceX:
 
         return response.json()
 
+    def print_data(self, response):
+        print( ('\n\tMission Name: {}\n\tRocket Name: {}\n\tDate: {}'
+                '\n\tLaunch Site: {}\n\tDescription: {}'.format(
+                response['mission_name'],
+                response['rocket']['rocket_name'],
+                response['launch_date_utc'],
+                response['launch_site']['site_name_long'],
+                response['details'])))
 
-    def extract(self, url):
+
+    def extract(self, url, mult=0):
         ''' Extrating information on data acquired and
             printing on the screen '''
 
@@ -40,14 +49,11 @@ class SpaceX:
         if type(response) == str:
             print(response)
             return
-        else:
-            print( ('\n\tMission Name: {}\n\tRocket Name: {}\n\tDate: {}'
-                    '\n\tLaunch Site: {}\n\tDescription: {}'.format(
-                    response['mission_name'],
-                    response['rocket']['rocket_name'],
-                    response['launch_date_utc'],
-                    response['launch_site']['site_name_long'],
-                    response['details'])))
+        elif mult == 0:
+            self.print_data(response)
+        elif mult == 1:
+            for element in response.json():
+                self.print_data(element)
 
     def run(self):
         ''' Run, Forest! Run! '''
@@ -86,10 +92,12 @@ class SpaceX:
             self.extract('https://api.spacexdata.com/v3/launches/next')
         if args.latest:
             self.extract('https://api.spacexdata.com/v3/launches/latest')
-        #if args.upcoming:
-        #    self.extract('https://api.spacexdata.com/v3/launches/upcoming')
-        #if args.past:
-        #    self.extract('https://api.spacexdata.com/v3/launches/past')
+        if args.upcoming:
+            self.extract('https://api.spacexdata.com/v3/launches/upcoming',
+                    mult=1)
+        if args.past:
+            self.extract('https://api.spacexdata.com/v3/launches/past',
+                    mult=1)
 
 if __name__ == '__main__':
     spacex = SpaceX()
