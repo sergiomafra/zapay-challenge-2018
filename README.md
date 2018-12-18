@@ -8,11 +8,11 @@ User should be able to choose between PAST, NEXT, LATESTS and UPCOMING launches 
 
 First, copy the repository to your machine with the command:
 
-`$ git clone https://github.com/sergiomafra/zapay-challenge`
+`$ git clone https://github.com/sergiomafra/zapay-challenge-2018`
 
 Then change to it's directory:
 
-`$ cd zapay-challenge`
+`$ cd zapay-challenge-2018`
 
 #### Through Script (execute)
 `$ ./install`
